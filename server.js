@@ -168,7 +168,14 @@ function getConversionRate(request, response, urlObject)
         var sourceCurrency = urlObject.query['srcCurCode'];
         var targetCurrency = urlObject.query['tgtCurCode'];
         var realTime = urlObject.query['realTime'];
-	realTime = realTime.replace(/"/g, "").trim().toLowerCase();
+        if(realTime)
+        {
+		realTime = realTime.replace(/"/g, "").trim().toLowerCase();
+        }
+        else
+        {
+        	realTime = "false";
+        }
 	sourceCurrency = sourceCurrency.replace(/"/g, "").trim().toUpperCase();
 	targetCurrency = targetCurrency.replace(/"/g, "").trim().toUpperCase();
         
